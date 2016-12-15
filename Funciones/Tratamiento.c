@@ -1,0 +1,250 @@
+/*****************************************************************************************************************
+
+       @file Tratamiento.c
+       @brief Archivo que contiene todas las funciones que relacionadas con la estructura Tratamiento
+       @author Felipe Jara Ramirez (nialevolstel)
+       @version 1.0
+       @date 18 de Septiembre del 2014
+
+*******************************************************************************************************************/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "../Estructuras/Estructuras.h"
+#include "General.h"
+
+#include "Tratamiento.h"
+
+#define ARCHIVO_TRATAMIENTOS "Bases de Datos/Tratamiento.txt"
+#define COLUMNAS_TRATAMIENTOS 4
+#define REFERENCIA_TRATAMIENTOS 3
+
+
+
+
+
+/**
+              _                    _                         _                  _
+             | |                  | |                       (_)                | |
+             | |_   _ __    __ _  | |_    __ _   _ __ ___    _    ___   _ __   | |_    ___    ___
+             | __| | '__|  / _` | | __|  / _` | | '_ ` _ \  | |  / _ \ | '_ \  | __|  / _ \  / __|
+             | |_  | |    | (_| | | |_  | (_| | | | | | | | | | |  __/ | | | | | |_  | (_) | \__ \
+              \__| |_|     \__,_|  \__|  \__,_| |_| |_| |_| |_|  \___| |_| |_|  \__|  \___/  |___/
+
+
+*/
+
+/**
+    @brief          Funcion utilizada para obtener todo los registros relacionados con los tratamientos contenidos en su
+                    correspondiente base de datos.
+
+    @param          tratamientos
+    @brief          Arreglo de estructura Tratamiento. Parametro pasado por referencia que, tras finalizar la ejecucion de la funcion, pasa a contener
+                    toda la informacion relacionada con los tratamientos
+
+    @param          contadorTratamientos
+                    Numero entero que representa la cantidad de registros de tratamientos contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Tratamiento entregado como parametro
+
+    @return         Numero entero que indica la existencia de errores, en el caso de que existan.
+                        \n a)  Retornar 0 indica que la funcion se ha llevado a cabo correctamente.
+                        \n b)  Retornar un numero diferente de 0 indica que se ha presentado una anormalidad en la funcion cuando esta fue ejecutada.
+*/
+int lecturaTratamientos(struct Tratamiento tratamientos[], int contadorTratamientos){
+
+    FILE* archivoTratamientos = fopen(ARCHIVO_TRATAMIENTOS, "r");  /**< Se declara el puntero "archivoTratamientos" para entregarle la referencia a un
+                                                                        archivo de texto (base de dato) */
+
+    if (archivoTratamientos == NULL){
+        return -1;
+    }
+
+    else{
+
+        char stringAux[DEFAULT_STRING_SIZE];
+
+        int fscanfAux = 0;
+
+        int i = 0;
+
+        int index = 0;
+
+        fscanf(archivoTratamientos, "%*[identificador,nombreTratamiento,descripcionTratamiento,nivelDeRiesgo] %*[\n]"); // Se ignora la primera linea en el archivo.
+        while (index < contadorTratamientos && fscanfAux != EOF){
+
+            switch(i){
+
+                // Caso para agregar el identificador del doctor
+                case 0: fgets(stringAux, 1, archivoTratamientos);
+                        fscanf(archivoTratamientos, "%[^,]", stringAux);
+                        tratamientos[index].ID = atoi(stringAux);
+                        i++;
+
+                // Caso para agregar el rut del doctor
+                case 1: fscanf(archivoTratamientos, "%*[,] %[^,]", tratamientos[index].nombre);
+                        i++;
+
+                // Caso para agregar el mail del doctor
+                case 2: fscanf(archivoTratamientos, "%*[,] %[^,]", tratamientos[index].descripcion);
+                        i++;
+
+                // Caso para agregar la fecha de nacimiento del doctor
+                case 3: fscanf(archivoTratamientos, "%*[,] %[^\n] %*[\n] ", tratamientos[index].nivel);
+                        i = 0;
+                        index++;
+            }
+
+        }
+
+    fclose(archivoTratamientos);
+    return 0;
+
+        }
+    }
+
+/**
+    @brief          Funcion utilizada para listar en un archivo output el o los tratamientos de acuerdo a un nivel de riesgo en especifico
+
+    @param          nivel
+    @brief          Nivel de los tratamientos que se quieren enlistar.
+
+    @param          tratamientos
+    @brief          Arreglo de estructura Tratamiento que contiene toda la informacion relacionado con los registros de su respectiva base de datos.
+
+    @param          cantidadTratamientos
+                    Numero entero que representa la cantidad de registros de tratamientos contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Tratamiento entregado como parametro.
+
+    @return         Numero entero que indica la existencia de errores, en el caso de que existan.
+                        \n a)  Retornar 0 indica que la funcion se ha llevado a cabo correctamente.
+                        \n b)  Retornar un numero diferente de 0 indica que se ha presentado una anormalidad en la funcion cuando esta fue ejecutada.
+
+*/
+int outputListarTratamientosSegunNivel(char nivel[], struct Tratamiento tratamientos[], int cantidadTratamientos){
+
+    FILE* output = fopen(ARCHIVO_OUTPUT,"a");
+
+    if (output == NULL){
+        return -1;
+    }
+
+    else{
+
+        /** Se verifica si tal nivel de tratamiento ingresado como parametro existe en los tratamientos obtenidos a partir de la base de datos.
+            Para ello se utiliza verificadorNivel, el cual toma un valor diferente de 0 en el caso de que el nivel no exista */
+
+            int index;
+            int verificadorNivel = -1;
+            for (index = 0; index < cantidadTratamientos && verificadorNivel != 0; index++){
+                if (strcmp(nivel,tratamientos[index].nivel) == 0){
+                    verificadorNivel = 0;
+                }
+            }
+
+            if (verificadorNivel == -1){
+                fprintf(output,"ERROR! No es posible encontrar el nivel de riesgo ingresado en la base de datos\n\n");
+                fclose(output);
+                return -1;
+            }
+
+            else{
+                /* Llegando a este punto del programa, es posible enlistar los tratamientos pertenecientes al nivel de riesgo entregado como parametro */
+                for (index = 0; index < cantidadTratamientos; index++){
+                    if (strcmp(nivel,tratamientos[index].nivel) == 0){
+                        fprintf(output,"%s\n",tratamientos[index].nombre);
+                    }
+                }
+                fprintf(output,"\n");
+                fclose(output);
+                return 0;
+            }
+        }
+    }
+
+/**
+
+    @brief          Funcion utilizada para verificar la existencia de un tratamiento en especifico en su respectiva base de datos
+
+    @param          IDTratamiento
+    @brief          Identificador del tratamiento cuya existencia se desea verificar.
+
+    @param          datos
+    @brief          Arreglo de estructura Tratamiento que contiene toda la informacion relacionado con los registros de su respectiva base de datos.
+
+    @param          cantidadDatos
+                    Numero entero que representa la cantidad de registros de tratamientos contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Tratamiento entregado como parametro.
+
+    @return         Numero que indica si existe o no el tratamiento en la base de datos
+                            \n 0  =   El tratamiento existe en la base de datos
+                            \n-1  =   El tratamiento no existe en la base de datos
+*/
+int verificarExistenciaDeTratamiento(int IDTratamiento, struct Tratamiento datos[], int cantidadDatos){
+    int i;
+    int verificador = -1;
+    for (i = 0; i < cantidadDatos; i++){
+        if (datos[i].ID == IDTratamiento){
+            verificador = 0;
+            return verificador;
+        }
+    }
+    return verificador;
+}
+
+
+/**
+
+    @brief          Funcion utilizada para listar en un archivo output el o los tratamientos de acuerdo a los identificadores entregados
+
+    @param          identificadores
+    @brief          Identificadores de los tratamientos que se desean enlistar.
+
+    @param          cantidadIdentificadores
+    @brief          Cantidad de identificadores a enlistar
+
+    @param          datos
+    @brief          Arreglo de estructura Tratamiento que contiene toda la informacion relacionado con los registros de su respectiva base de datos.
+
+    @param          cantidadDatos
+                    Numero entero que representa la cantidad de registros de tratamientos contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Tratamiento entregado como parametro.
+
+    @return         Numero entero que indica la existencia de errores, en el caso de que existan.
+                        \n a)  Retornar 0 indica que la funcion se ha llevado a cabo correctamente.
+                        \n b)  Retornar un numero diferente de 0 indica que se ha presentado una anormalidad en la funcion cuando esta fue ejecutada.
+*/
+int outputListarTratamientosSegunID(int identificadores[], int cantidadIdentificadores, struct Tratamiento datos[], int cantidadDatos){
+    FILE*   output = fopen(ARCHIVO_OUTPUT,"a");
+
+    if (output == NULL){
+        fprintf(output,"Se ha producido un error en el enlistamiento de tratamientos\n\n");
+        fclose(output);
+        return -1;
+    }
+
+    else{
+        int i;
+        int j;
+        int auxBreak;
+
+        for (i = 0; i < cantidadIdentificadores; i++){
+            auxBreak = 0;
+
+            for (j = 0; j < cantidadDatos && auxBreak == 0 ; j++){
+
+                if (datos[j].ID == identificadores[i]){
+                    fprintf(output,"%s %s\n",datos[j].nombre,datos[j].descripcion);
+                }
+            }
+            fprintf(output,"\n");
+        }
+        fclose(output);
+        return 0;
+    }
+}
+
+
+

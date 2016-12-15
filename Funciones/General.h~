@@ -1,0 +1,13 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#ifndef GENERAL_H
+#define GENERAL_H
+
+int contadorDeDatos( char nombreArchivo[], int identificador, int cantidadColumnas);
+void escribirMensajeDeError(char mensaje[]);
+void transformarFecha(char fecha[], int fechaInt[]);
+
+#endif /* GENERAL_H */

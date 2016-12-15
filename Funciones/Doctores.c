@@ -1,0 +1,361 @@
+/*****************************************************************************************************************
+
+       @file Doctores.c
+       @brief Archivo que contiene todas las funciones que relacionadas con la estructura Doctor
+       @author Felipe Ignacio Jara Ramirez (nialevolstel)
+       @version 1.0
+       @date 18 de Septiembre del 2014
+
+*******************************************************************************************************************/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "../Estructuras/Estructuras.h"
+#include "General.h"
+
+#include "Doctores.h"
+
+
+
+/**
+    @def ARCHIVO_DOCTORES
+    @brief Contiene la ruta en donde se encuentra la base de datos correspondiente a los doctores.
+
+    @def COLUMNAS_PACIENTES
+    @brief Contiene la cantidad de elementos diferentes que estructuran la base de datos correspondiente a los doctores
+
+    @def REFERENCIA_PACIENTES
+    @brief Contiene una referencia utilizada para realizar un conteo de la cantidad de doctores contenidos en su respectiva
+    base de datos. Es utilizado en la funcion  contadorDeDatos() declarada en el archivo General.c
+*/
+
+#define ARCHIVO_DOCTORES "Bases de Datos/Doctor.txt"
+#define COLUMNAS_DOCTORES 6
+#define REFERENCIA_DOCTORES 1
+
+
+                            /******************************************************************************
+                                              _                  _
+                                             | |                | |
+                                           __| |   ___     ___  | |_    ___    _ __    ___   ___
+                                          / _` |  / _ \   / __| | __|  / _ \  | '__|  / _ \ / __|
+                                         | (_| | | (_) | | (__  | |_  | (_) | | |    |  __/ \__ \
+                                          \__,_|  \___/   \___|  \__|  \___/  |_|     \___| |___/
+
+
+                            ********************************************************************************/
+
+
+/**
+
+    @brief          Funcion utilizada para obtener toda la informacion relacionada con los doctores a partir de su respectiva base de datos
+
+    @param          doctores
+    @brief          Arreglo de estructura Doctor. Parametro pasado por referencia que, tras finalizar la ejecucion de la funcion, pasa a contener
+                    toda la informacion relacionada con los doctores (identificador,rut,email,Nombre,apellido,especialidad).
+
+    @param          cantidadDoctores
+                    Numero entero que representa la cantidad de doctores incluidos en la base de datos. Tambien indica la dimension del arreglo de estructura
+                    Doctor entregado como parametro
+
+    @return         Numero entero que indica la existencia de errores, en el caso de que existan.
+                        \n a)  Retornar 0 indica que la funcion se ha llevado a cabo correctamente.
+                        \n b)  Retornar un numero diferente de 0 indica que se ha presentado una anormalidad en la funcion cuando esta fue ejecutada.
+*/
+int lecturaDoctores(struct Doctor doctores[], int cantidadDoctores){
+
+    /**
+        Se realiza la apertura de la base de datos y se asigna su referencia a la variable local "archivoDoctor"
+    */
+    FILE* archivoDoctor = fopen(ARCHIVO_DOCTORES, "r");
+
+    /**
+        En el caso de que se presente un error durante la apertura de la base de datos, se escribe un mensaje de
+        error en el archivo output y se retorna -1
+    */
+
+    if (archivoDoctor == NULL){
+        escribirMensajeDeError("Ha ocurrido un error durante la apertura de la base de datos relacionada con los doctores.");
+        return -1;
+    }
+
+    else{
+
+        /**
+            Conociendo la cantidad de doctores que hay en la base de datos, se procede a agregar la informacion contenida en el archivo de texto
+            al arreglo de structura Doctor pasado como argumento. La primera linea del archivo sirve solamente como referencia, por lo que debe
+            ser ignorada
+        */
+
+        fscanf(archivoDoctor, "%*[identificador,rut,email,Nombre,apellido,especialidad] %*[\n]");
+
+        char stringAux[DEFAULT_STRING_SIZE];/**<   Se declara la variable local stringAux para aquellos datos, del doctor, que requieren
+                                                    ser transformados a un tipo de dato int antes de ser incluidos al arreglo
+                                                    de estructura Doctor (Identificador)*/
+
+
+        /**
+            Bajo una sentencia while y switch-case se procede a agregar al arreglo de estructura Doctor la informacion necesaria
+            para estructurar a cada uno de los doctores
+        */
+
+        int fscanfAux = 0;  /**<    Se declara la variable local fscanfAux con el proposito de detener el ciclo while cuando, durante
+                                    la lectura, se llega al final del archivo. Es decir, cuando fscanfAux es igual a EOF */
+
+        int i = 0;
+        int index = 0;
+        while (index < cantidadDoctores && fscanfAux != EOF){
+
+            switch(i){
+
+                // Caso para agregar el identificador del doctor
+                case 0: fgets(stringAux, 1, archivoDoctor);
+                        fscanf(archivoDoctor, "%[^,]", stringAux);
+                        doctores[index].ID = atoi(stringAux);
+                        i++;
+
+                // Caso para agregar el rut del doctor
+                case 1: fscanf(archivoDoctor, "%*[,] %[^,]", doctores[index].rut);
+                        i++;
+
+                // Caso para agregar el mail del doctor
+                case 2: fscanf(archivoDoctor, "%*[,] %[^,]", doctores[index].email);
+                        i++;
+
+                // Caso para agregar el nombre del doctor
+                case 3: fscanf(archivoDoctor, "%*[,] %[^,]", doctores[index].nombre);
+                        i++;
+
+                // Caso para agregar el apellido del doctor
+                case 4: fscanf(archivoDoctor, "%*[,] %[^,]", doctores[index].apellido);
+                        i++;
+
+                // Caso para agregar la fecha de nacimiento del doctor
+                case 5: fscanf(archivoDoctor, "%*[,] %[^\n] %*[\n] ", doctores[index].especialidad);
+                        i = 0;
+                        index++;
+            }
+        }
+
+    /**
+        Se cierra el archivo y se retorna 0 para indicar que ningun error ha ocurrido
+    */
+
+    fclose(archivoDoctor);
+    return 0;
+
+    }
+}
+
+
+/**
+    @brief          Funcion utilizada para obtener el identificador de un doctor por medio de su rut
+
+    @param          rut
+    @brief          Rut del doctor, escrito como String, cuyo identificador se desea obtener.
+
+    @param          doctores
+    @brief          Arreglo de estructura Doctor que contiene toda la informacion relacionada con los pacientes en la base de datos.
+
+    @param          cantidadDoctores
+    @brief          Numero entero que indica la cantidad de doctores contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Doctor ingresado como parametro
+
+    @return         Identificador del doctor que se desea encontrar. En el caso de que no exista en la base de datos, se retorna -1
+*/
+int buscarDoctorPorRut(char rut[], struct Doctor doctores[], int contadorDoctores){
+
+    /**
+        Se recurre a un ciclo for para comparar el rut ingresado como parametro con el rut de cada uno de los doctores contenidos en la
+        base de datos, uno por uno. En el caso de que el rut ingresado sea igual al rut de un doctor en la base de datos, se devuelve
+        el identificador de ese doctor
+    */
+
+    int ID = -1;    /**<   Se declara e inicializa la variable local "ID" con el valor de -1. Si es que se encuentra el rut ingresado en la base
+                            de datos, la variable toma el valor del identificador del doctor al cual el corresponde ese rut */
+    int i;
+    for (i = 0; i < contadorDoctores; i++){
+        if (strcmp(rut, doctores[i].rut) == 0){
+             ID = doctores[i].ID;
+            }
+
+    }
+
+    /** Se retorna la variable local "ID" */
+    return ID;
+}
+
+/**
+
+    @brief          Funcion utilizada para obtener el identificador de un doctor por medio de su correo
+
+    @param          correo
+    @brief          Correo del doctor, escrito como String, cuyo identificador se desea encontrar
+
+    @param          doctores
+    @brief          Arreglo de estructura Doctor que contiene toda la informacion relacionada con los doctores en la base de datos.
+
+    @param          cantidadDoctores
+    @brief          Numero entero que indica la cantidad de doctores contenidos en la base de datos. Tambien indica la dimension del
+                    arreglo de estructura Doctor ingresado como parametro
+
+    @return         Identificador del doctor que se desea encontrar. En el caso de que no exista en la base de datos, se retorna -1
+*/
+
+int buscarDoctorPorCorreo(char correo[], struct Doctor doctores[], int cantidadDoctores){
+
+    /**
+        Se recurre a un ciclo for para comparar el correo ingresado como parametro con el correo de cada uno de los doctores contenidos en la
+        base de datos, uno por uno. En el caso de que el correo ingresado sea igual al correo de un doctor, se devuelve el identificador de ese doctor
+    */
+
+    int ID = -1;    /**<   Se declara e inicializa la variable local "ID" con el valor de -1. Si es que se encuentra el correo ingresado en la base
+                            de datos, la variable toma el valor del identificador del doctor al cual el corresponde ese correo */
+
+    int i;
+    for (i = 0; i < cantidadDoctores && ID == -1; i++){
+        if (strcmp(correo, doctores[i].email) == 0){
+             ID = doctores[i].ID;
+        }
+    }
+    return ID;
+}
+
+/**
+    Nombre:         outputEspecialidadDoctor
+
+    Descripcion:    Funcion utilizada para escribir sobre un archivo output la especialidad de un doctor dado su identificador
+
+    Entrada:        Identificador del doctor (int)
+                    Doctores (Array struct Doctor)
+                    Cantidad de doctores (int)
+
+    Salida:         Verificador de errores (int)
+*/
+int outputEspecialidadDoctor(int ID, struct Doctor doctores[], int cantidadDoctores){
+    FILE* output = fopen(ARCHIVO_OUTPUT,"a");
+
+    if (output == NULL){
+        return -1;
+    }
+
+    else{
+        int i;
+        for (i = 0; i < cantidadDoctores; i++){
+            if ( ID == doctores[i].ID){
+                fprintf(output,"%s",doctores[i].especialidad);
+            }
+        }
+        fprintf(output,"\n\n");
+        fclose(output);
+        return 0;
+    }
+
+}
+
+
+/**
+    Nombre          outputListarMedicos
+
+    Descripcion:    Funcion utilizada para escribir sobre un archivo output el rut, nombre y apellido de todos los médicos relacionados con
+                    los identificadores entregados como parametro
+
+    Entrada:        Identificadores de tratamiento (Array int)
+                    Cantidad de identificadores (int)
+                    Doctores (Arreglo de estructura Doctor)
+                    Cantidad de doctores (int)
+
+    Salida:         Indicador de error (int)
+*/
+int outputListarMedicos(int identificadoresMedico[], int cantidadIdentificadores, struct Doctor datos[], int cantidadDatos){
+    FILE* output = fopen(ARCHIVO_OUTPUT,"a");
+
+    if (output == NULL){
+        return -1;
+    }
+
+    else{
+        int i, j, auxBreak;
+        for (i = 0; i < cantidadIdentificadores; i++){
+            auxBreak = 0;
+            for (j = 0; j < cantidadDatos; j++){
+                if (datos[j].ID == identificadoresMedico[i]){
+
+                    /**
+                        Lo siguiente se hace con el proposito de no repetir un medico en el enlistamiento
+                    */
+
+                    int verificador = 0; // Si el verificador resulta ser igual a 0, significa que el medico no se ha repetido
+
+                    int k;
+
+                    for (k = i; k >= 0; k--){
+                        if (i != k){
+                            if (identificadoresMedico[i] == identificadoresMedico[k]){
+                                verificador = -1;
+                            }
+                        }
+
+
+                    }
+
+
+                    if (verificador == 0){
+                        fprintf(output, "%s,%s,%s\n", datos[j].rut,datos[j].nombre,datos[j].apellido);
+                    }
+                }
+            }
+        }
+
+        fprintf(output,"\n\n");
+        fclose(output);
+    }
+}
+
+/**
+    Nombre:         outputEliminarMedico
+
+    Descripcion:    Funcion utilizada para eliminar a un medico de su respectiva base de datos
+
+    Entrada:        Identificador del medico (int)
+                    Medicos (Array de estructura Doctor)
+                    Cantidad de medicos (int)
+
+    Salida:         Indicador de error (int)
+*/
+int outputEliminarMedico(int IDMedico, struct Doctor datos[], int cantidadDatos){
+
+    FILE* archivo = fopen(ARCHIVO_DOCTORES, "w");
+    FILE* output  = fopen(ARCHIVO_OUTPUT,"a");
+
+    if (archivo == NULL){
+        if (output != NULL){
+            fprintf(output, "ERROR!: No se ha podido acceder a la base de datos\n\n");
+            fclose(output);
+            return -1;
+        }
+    }
+
+    else{
+        int i;
+        fprintf(archivo,"identificador,rut,email,Nombre,apellido,especialidad\n");
+        for (i = 0; i < cantidadDatos; i++){
+            if (datos[i].ID != IDMedico){
+                fprintf(archivo,"%d,%s,%s,%s,%s,%s\n", datos[i].ID, datos[i].rut,datos[i].email,datos[i].nombre,datos[i].apellido,datos[i].especialidad);
+            }
+        }
+        fclose(archivo);
+
+        if (output != NULL){
+            fprintf(output, "Se ha eliminado correctamente el medico (ID:%d) indicado\n\n",IDMedico);
+            fclose(output);
+        }
+        return 0;
+
+    }
+}
+
+
