@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Estructuras: Fichero Fuente Estructuras.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Estructuras
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Estructuras.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*****************************************************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">       @file Estructuras.h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">       @brief Archivo para guardar las estructuras que son utilizadas en el programa principal (main)</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">       @author Felipe Ignacio Jara Ramirez (nialevolstel)</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">       @version 1.0</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">       @date 18 de Septiembre del 2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">******************************************************************************************************************/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                    <span class="comment">/****************************************************</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">                                       _____                _              _</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">                                      / ____|              | |            | |</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">                                     | |     ___  _ __  ___| |_ __ _ _ __ | |_ ___  ___</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">                                     | |    / _ \| &#39;_ \/ __| __/ _` | &#39;_ \| __/ _ \/ __|</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">                                     | |___| (_) | | | \__ \ || (_| | | | | ||  __/\__ \</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">                                      \_____\___/|_| |_|___/\__\__,_|_| |_|\__\___||___/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">                                    ****************************************************/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define DEFAULT_STRING_SIZE 50</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DEFAULT_LONG_STRING_SIZE 1024</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                <span class="comment">/***********************************************************</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">                                  ______     _                   _</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">                                 |  ____|   | |                 | |</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">                                 | |__   ___| |_ _ __ _   _  ___| |_ _   _ _ __ __ _ ___</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">                                 |  __| / __| __| &#39;__| | | |/ __| __| | | | &#39;__/ _` / __|</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">                                 | |____\__ \ |_| |  | |_| | (__| |_| |_| | | | (_| \__ \</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">                                 |______|___/\__|_|   \__,_|\___|\__|\__,_|_|  \__,_|___/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">                                ************************************************************/</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="struct_diagnostico.html">   63</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_diagnostico.html">Diagnostico</a>{</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="struct_diagnostico.html#a094c367727273b4da2b960ca3b3edc06">   64</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico.html#a094c367727273b4da2b960ca3b3edc06">ID</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="struct_diagnostico.html#a27d542cc2ca6186003ba763461c069ae">   65</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico.html#a27d542cc2ca6186003ba763461c069ae">descripcion</a>[DEFAULT_LONG_STRING_SIZE];</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="struct_diagnostico.html#ae0d08e5fff6081018e76cdb234b55fce">   66</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico.html#ae0d08e5fff6081018e76cdb234b55fce">nivel</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="struct_paciente.html">   92</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_paciente.html">Paciente</a>{</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="struct_paciente.html#a094c367727273b4da2b960ca3b3edc06">   93</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_paciente.html#a094c367727273b4da2b960ca3b3edc06">ID</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="struct_paciente.html#a03457d879c152b4e379c3e858d25cb6e">   94</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_paciente.html#a03457d879c152b4e379c3e858d25cb6e">rut</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="struct_paciente.html#a310b99f750bdb8b0b67b6fb7ba065f6f">   95</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_paciente.html#a310b99f750bdb8b0b67b6fb7ba065f6f">email</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="struct_paciente.html#a763b45fb68504a61182f1ce222e5abc1">   96</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_paciente.html#a763b45fb68504a61182f1ce222e5abc1">nombre</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="struct_paciente.html#a73c2d759f466cc21802a63415b114a2c">   97</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_paciente.html#a73c2d759f466cc21802a63415b114a2c">apellido</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="struct_paciente.html#a69128fa718f7a5ebd98eb1b829a997be">   98</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_paciente.html#a69128fa718f7a5ebd98eb1b829a997be">fechaNacimiento</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="struct_doctor.html">  123</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_doctor.html">Doctor</a>{</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="struct_doctor.html#a094c367727273b4da2b960ca3b3edc06">  124</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_doctor.html#a094c367727273b4da2b960ca3b3edc06">ID</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="struct_doctor.html#a03457d879c152b4e379c3e858d25cb6e">  125</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_doctor.html#a03457d879c152b4e379c3e858d25cb6e">rut</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="struct_doctor.html#a310b99f750bdb8b0b67b6fb7ba065f6f">  126</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_doctor.html#a310b99f750bdb8b0b67b6fb7ba065f6f">email</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="struct_doctor.html#a763b45fb68504a61182f1ce222e5abc1">  127</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_doctor.html#a763b45fb68504a61182f1ce222e5abc1">nombre</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="struct_doctor.html#a73c2d759f466cc21802a63415b114a2c">  128</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_doctor.html#a73c2d759f466cc21802a63415b114a2c">apellido</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="struct_doctor.html#a8a0fab35cea0d6a2df42d3716455380e">  129</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_doctor.html#a8a0fab35cea0d6a2df42d3716455380e">especialidad</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="struct_tratamiento.html">  148</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_tratamiento.html">Tratamiento</a>{</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="struct_tratamiento.html#a094c367727273b4da2b960ca3b3edc06">  149</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento.html#a094c367727273b4da2b960ca3b3edc06">ID</a>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="struct_tratamiento.html#a763b45fb68504a61182f1ce222e5abc1">  150</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_tratamiento.html#a763b45fb68504a61182f1ce222e5abc1">nombre</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="struct_tratamiento.html#a27d542cc2ca6186003ba763461c069ae">  151</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_tratamiento.html#a27d542cc2ca6186003ba763461c069ae">descripcion</a>[DEFAULT_LONG_STRING_SIZE];</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="struct_tratamiento.html#ae0d08e5fff6081018e76cdb234b55fce">  152</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_tratamiento.html#ae0d08e5fff6081018e76cdb234b55fce">nivel</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;};</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html">  188</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_diagnostico_paciente.html">DiagnosticoPaciente</a>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a094c367727273b4da2b960ca3b3edc06">  189</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico_paciente.html#a094c367727273b4da2b960ca3b3edc06">ID</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a2b39eb0f35baf61c31a09ec7f6f5e52e">  190</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico_paciente.html#a2b39eb0f35baf61c31a09ec7f6f5e52e">IDPaciente</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a784e6509c60bff50492b140a46db129a">  191</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico_paciente.html#a784e6509c60bff50492b140a46db129a">IDDiagnostico</a>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a4ecf979918947f491fa2711114641a9d">  192</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico_paciente.html#a4ecf979918947f491fa2711114641a9d">IDDoctorDiagnostico</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#aec0a30f55c4cb86fa823151dc2f10f0f">  193</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_diagnostico_paciente.html#aec0a30f55c4cb86fa823151dc2f10f0f">IDDoctorAlta</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a4920c8a3b4329d7a94d4689f9b8083a2">  194</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico_paciente.html#a4920c8a3b4329d7a94d4689f9b8083a2">fechaDiagnostico</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a7ec3d6862b71f7a3a8aafad487467031">  195</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico_paciente.html#a7ec3d6862b71f7a3a8aafad487467031">estadoDiagnostico</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a0944ef0886c96e8a65e9ec1af567129d">  196</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico_paciente.html#a0944ef0886c96e8a65e9ec1af567129d">fechaAlta</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="struct_diagnostico_paciente.html#a2252cd464eb4aad0805af6be9d2deae8">  197</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_diagnostico_paciente.html#a2252cd464eb4aad0805af6be9d2deae8">detalleAlta</a>[DEFAULT_LONG_STRING_SIZE];</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;};</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico.html">  210</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_tratamiento_diagnostico.html">TratamientoDiagnostico</a>{</div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico.html#a784e6509c60bff50492b140a46db129a">  211</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico.html#a784e6509c60bff50492b140a46db129a">IDDiagnostico</a>;</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico.html#a7f20188ae55f16ab7593de7cb3554ee8">  212</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico.html#a7f20188ae55f16ab7593de7cb3554ee8">IDTratamiento</a>;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;};</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html">  239</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_tratamiento_diagnostico_paciente.html">TratamientoDiagnosticoPaciente</a>{</div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#a39dc582cc6483bebae21964dd8e6332d">  240</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#a39dc582cc6483bebae21964dd8e6332d">IDDiagnosticoPaciente</a>;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#a7f20188ae55f16ab7593de7cb3554ee8">  241</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#a7f20188ae55f16ab7593de7cb3554ee8">IDTratamiento</a>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#aa99c547f52042160aa8a181d16d34d43">  242</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#aa99c547f52042160aa8a181d16d34d43">IDMedico</a>;</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#a2a54a4b490bed293330389c5f0e0df12">  243</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#a2a54a4b490bed293330389c5f0e0df12">fechaInicio</a>[DEFAULT_STRING_SIZE];</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#a5853831582d8d94d3d51b243eea3d6fb">  244</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#a5853831582d8d94d3d51b243eea3d6fb">duracionDias</a>;</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="struct_tratamiento_diagnostico_paciente.html#a69b17337f5ee12bb0d5e75f09eb43424">  245</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_tratamiento_diagnostico_paciente.html#a69b17337f5ee12bb0d5e75f09eb43424">resultado</a>[DEFAULT_LONG_STRING_SIZE];</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;};</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a784e6509c60bff50492b140a46db129a"><div class="ttname"><a href="struct_diagnostico_paciente.html#a784e6509c60bff50492b140a46db129a">DiagnosticoPaciente::IDDiagnostico</a></div><div class="ttdeci">int IDDiagnostico</div><div class="ttdoc">&quot;IDDiagnostico&quot; contiene el identificador de un diagnostico relacionado con una vinculacion diagnosti...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00191">Estructuras.h:191</a></div></div>
+<div class="ttc" id="struct_tratamiento_html_ae0d08e5fff6081018e76cdb234b55fce"><div class="ttname"><a href="struct_tratamiento.html#ae0d08e5fff6081018e76cdb234b55fce">Tratamiento::nivel</a></div><div class="ttdeci">char nivel[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;nivel&quot; contiene el nivel de riesgo que presenta un tratamiento (nulo, bajo, medio, alto, muy alto). </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00152">Estructuras.h:152</a></div></div>
+<div class="ttc" id="struct_paciente_html_a03457d879c152b4e379c3e858d25cb6e"><div class="ttname"><a href="struct_paciente.html#a03457d879c152b4e379c3e858d25cb6e">Paciente::rut</a></div><div class="ttdeci">char rut[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;rut&quot; contiene el rut de un paciente. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00094">Estructuras.h:94</a></div></div>
+<div class="ttc" id="struct_doctor_html_a73c2d759f466cc21802a63415b114a2c"><div class="ttname"><a href="struct_doctor.html#a73c2d759f466cc21802a63415b114a2c">Doctor::apellido</a></div><div class="ttdeci">char apellido[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;apellido&quot; contiene el apellido de un doctor. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00128">Estructuras.h:128</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a0944ef0886c96e8a65e9ec1af567129d"><div class="ttname"><a href="struct_diagnostico_paciente.html#a0944ef0886c96e8a65e9ec1af567129d">DiagnosticoPaciente::fechaAlta</a></div><div class="ttdeci">char fechaAlta[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;fechaAlta&quot; contiene la fecha en que se dio de alta al paciente relacionado con una vinculacion diagn...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00196">Estructuras.h:196</a></div></div>
+<div class="ttc" id="struct_doctor_html_a310b99f750bdb8b0b67b6fb7ba065f6f"><div class="ttname"><a href="struct_doctor.html#a310b99f750bdb8b0b67b6fb7ba065f6f">Doctor::email</a></div><div class="ttdeci">char email[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;email&quot; contiene el correo de un doctor. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00126">Estructuras.h:126</a></div></div>
+<div class="ttc" id="struct_diagnostico_html_ae0d08e5fff6081018e76cdb234b55fce"><div class="ttname"><a href="struct_diagnostico.html#ae0d08e5fff6081018e76cdb234b55fce">Diagnostico::nivel</a></div><div class="ttdeci">char nivel[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;nivel&quot; contiene el nivel de gravedad que representa el diagnostico. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00066">Estructuras.h:66</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_a69b17337f5ee12bb0d5e75f09eb43424"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#a69b17337f5ee12bb0d5e75f09eb43424">TratamientoDiagnosticoPaciente::resultado</a></div><div class="ttdeci">char resultado[DEFAULT_LONG_STRING_SIZE]</div><div class="ttdoc">&quot;resultado&quot; contiene el resultado de un tratamiento relacionado con una vinculacion tratamiento-diagn...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00245">Estructuras.h:245</a></div></div>
+<div class="ttc" id="struct_tratamiento_html_a094c367727273b4da2b960ca3b3edc06"><div class="ttname"><a href="struct_tratamiento.html#a094c367727273b4da2b960ca3b3edc06">Tratamiento::ID</a></div><div class="ttdeci">int ID</div><div class="ttdoc">&quot;ID&quot; contiene el identificador de un tratamiento en su respectiva base de datos. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00149">Estructuras.h:149</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_html"><div class="ttname"><a href="struct_tratamiento_diagnostico.html">TratamientoDiagnostico</a></div><div class="ttdoc">Estructura de datos para utilizada almacenar informacion relativa al vinculo entre un tratamiento y u...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00210">Estructuras.h:210</a></div></div>
+<div class="ttc" id="struct_paciente_html_a73c2d759f466cc21802a63415b114a2c"><div class="ttname"><a href="struct_paciente.html#a73c2d759f466cc21802a63415b114a2c">Paciente::apellido</a></div><div class="ttdeci">char apellido[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;apellido&quot; contiene el apellido de un paciente. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00097">Estructuras.h:97</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_aec0a30f55c4cb86fa823151dc2f10f0f"><div class="ttname"><a href="struct_diagnostico_paciente.html#aec0a30f55c4cb86fa823151dc2f10f0f">DiagnosticoPaciente::IDDoctorAlta</a></div><div class="ttdeci">int IDDoctorAlta</div><div class="ttdoc">&quot;IDDoctorAlta&quot; contiene el identificador del doctor que dio de alta a un paciente relacionado con una...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00193">Estructuras.h:193</a></div></div>
+<div class="ttc" id="struct_paciente_html"><div class="ttname"><a href="struct_paciente.html">Paciente</a></div><div class="ttdoc">Estructura de datos utilizada almacenar informacion relativa a un paciente en especifico. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00092">Estructuras.h:92</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_a7f20188ae55f16ab7593de7cb3554ee8"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#a7f20188ae55f16ab7593de7cb3554ee8">TratamientoDiagnosticoPaciente::IDTratamiento</a></div><div class="ttdeci">int IDTratamiento</div><div class="ttdoc">&quot;IDTratamiento&quot; contiene el identificador del tratamiento relacionado con una vinculacion tratamiento...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00241">Estructuras.h:241</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_a2a54a4b490bed293330389c5f0e0df12"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#a2a54a4b490bed293330389c5f0e0df12">TratamientoDiagnosticoPaciente::fechaInicio</a></div><div class="ttdeci">char fechaInicio[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;fechaInicio&quot; contiene la fecha en que se dio inicio a un tratamiento relacionado con una vinculacion...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00243">Estructuras.h:243</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a7ec3d6862b71f7a3a8aafad487467031"><div class="ttname"><a href="struct_diagnostico_paciente.html#a7ec3d6862b71f7a3a8aafad487467031">DiagnosticoPaciente::estadoDiagnostico</a></div><div class="ttdeci">char estadoDiagnostico[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;estadoDiagnostico&quot; contiene el estado del diagnostico relacionado con una vinculacion diagnostico-pa...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00195">Estructuras.h:195</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_html_a784e6509c60bff50492b140a46db129a"><div class="ttname"><a href="struct_tratamiento_diagnostico.html#a784e6509c60bff50492b140a46db129a">TratamientoDiagnostico::IDDiagnostico</a></div><div class="ttdeci">int IDDiagnostico</div><div class="ttdoc">&quot;IDDiagnostico&quot; contiene el identificador del diagnostico relacionado con una vinculacion tratamiento...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00211">Estructuras.h:211</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a4920c8a3b4329d7a94d4689f9b8083a2"><div class="ttname"><a href="struct_diagnostico_paciente.html#a4920c8a3b4329d7a94d4689f9b8083a2">DiagnosticoPaciente::fechaDiagnostico</a></div><div class="ttdeci">char fechaDiagnostico[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;fechaDiagnostico&quot; contiene la fecha en que se llevo a cabo un diagnostico relacionado con una vincul...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00194">Estructuras.h:194</a></div></div>
+<div class="ttc" id="struct_paciente_html_a763b45fb68504a61182f1ce222e5abc1"><div class="ttname"><a href="struct_paciente.html#a763b45fb68504a61182f1ce222e5abc1">Paciente::nombre</a></div><div class="ttdeci">char nombre[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;nombre&quot; contiene el nombre de un paciente. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00096">Estructuras.h:96</a></div></div>
+<div class="ttc" id="struct_doctor_html"><div class="ttname"><a href="struct_doctor.html">Doctor</a></div><div class="ttdoc">Estructura de datos utilizada para almacenar informacion relativa a un doctor en especifico. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00123">Estructuras.h:123</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_a5853831582d8d94d3d51b243eea3d6fb"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#a5853831582d8d94d3d51b243eea3d6fb">TratamientoDiagnosticoPaciente::duracionDias</a></div><div class="ttdeci">int duracionDias</div><div class="ttdoc">&quot;duracionDias&quot; contiene la duracion de un tratamiento, en dias, relacionado con una vinculacion trata...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00244">Estructuras.h:244</a></div></div>
+<div class="ttc" id="struct_tratamiento_html"><div class="ttname"><a href="struct_tratamiento.html">Tratamiento</a></div><div class="ttdoc">Estructura de datos para almacenar informacion relativa a un tratamiento en especifico. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00148">Estructuras.h:148</a></div></div>
+<div class="ttc" id="struct_diagnostico_html"><div class="ttname"><a href="struct_diagnostico.html">Diagnostico</a></div><div class="ttdoc">Estructura de datos utilizada para almacenar informacion relativa a un diagnostico en especifico...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00063">Estructuras.h:63</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a2b39eb0f35baf61c31a09ec7f6f5e52e"><div class="ttname"><a href="struct_diagnostico_paciente.html#a2b39eb0f35baf61c31a09ec7f6f5e52e">DiagnosticoPaciente::IDPaciente</a></div><div class="ttdeci">int IDPaciente</div><div class="ttdoc">&quot;IDPaciente&quot; contiene el identificador de un paciente relacionado con una vinculacion diagnostico-pac...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00190">Estructuras.h:190</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a2252cd464eb4aad0805af6be9d2deae8"><div class="ttname"><a href="struct_diagnostico_paciente.html#a2252cd464eb4aad0805af6be9d2deae8">DiagnosticoPaciente::detalleAlta</a></div><div class="ttdeci">char detalleAlta[DEFAULT_LONG_STRING_SIZE]</div><div class="ttdoc">&quot;detalleAlta&quot; contiene una breve descripcion del alta de un paciente relacionado con una vinculacion ...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00197">Estructuras.h:197</a></div></div>
+<div class="ttc" id="struct_paciente_html_a310b99f750bdb8b0b67b6fb7ba065f6f"><div class="ttname"><a href="struct_paciente.html#a310b99f750bdb8b0b67b6fb7ba065f6f">Paciente::email</a></div><div class="ttdeci">char email[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;email&quot; contiene el correo de un paciente. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00095">Estructuras.h:95</a></div></div>
+<div class="ttc" id="struct_tratamiento_html_a27d542cc2ca6186003ba763461c069ae"><div class="ttname"><a href="struct_tratamiento.html#a27d542cc2ca6186003ba763461c069ae">Tratamiento::descripcion</a></div><div class="ttdeci">char descripcion[DEFAULT_LONG_STRING_SIZE]</div><div class="ttdoc">&quot;descripcion&quot; contiene una breve descripcion de un tratamiento. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00151">Estructuras.h:151</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a4ecf979918947f491fa2711114641a9d"><div class="ttname"><a href="struct_diagnostico_paciente.html#a4ecf979918947f491fa2711114641a9d">DiagnosticoPaciente::IDDoctorDiagnostico</a></div><div class="ttdeci">int IDDoctorDiagnostico</div><div class="ttdoc">&quot;IDDoctorDiagnostico&quot; contiene el identificador del doctor que llevo a cabo un diagnostico relacionad...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00192">Estructuras.h:192</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html">TratamientoDiagnosticoPaciente</a></div><div class="ttdoc">Estructura de datos utilizada para almacenar informacion relativa al vinculo entre un tratamiento...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00239">Estructuras.h:239</a></div></div>
+<div class="ttc" id="struct_doctor_html_a094c367727273b4da2b960ca3b3edc06"><div class="ttname"><a href="struct_doctor.html#a094c367727273b4da2b960ca3b3edc06">Doctor::ID</a></div><div class="ttdeci">int ID</div><div class="ttdoc">&quot;ID&quot; contiene al identificador de un doctor en su respectiva base de datos. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00124">Estructuras.h:124</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html_a094c367727273b4da2b960ca3b3edc06"><div class="ttname"><a href="struct_diagnostico_paciente.html#a094c367727273b4da2b960ca3b3edc06">DiagnosticoPaciente::ID</a></div><div class="ttdeci">int ID</div><div class="ttdoc">&quot;ID&quot; contiene el identificador de una vinculacion diagnostico-paciente en la base de datos...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00189">Estructuras.h:189</a></div></div>
+<div class="ttc" id="struct_doctor_html_a03457d879c152b4e379c3e858d25cb6e"><div class="ttname"><a href="struct_doctor.html#a03457d879c152b4e379c3e858d25cb6e">Doctor::rut</a></div><div class="ttdeci">char rut[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;rut&quot; contiene el rut de un doctor. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00125">Estructuras.h:125</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_aa99c547f52042160aa8a181d16d34d43"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#aa99c547f52042160aa8a181d16d34d43">TratamientoDiagnosticoPaciente::IDMedico</a></div><div class="ttdeci">int IDMedico</div><div class="ttdoc">&quot;IDMedico&quot; contiene el identificador del medico relacionado con una vinculacion tratamiento-diagnosti...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00242">Estructuras.h:242</a></div></div>
+<div class="ttc" id="struct_doctor_html_a8a0fab35cea0d6a2df42d3716455380e"><div class="ttname"><a href="struct_doctor.html#a8a0fab35cea0d6a2df42d3716455380e">Doctor::especialidad</a></div><div class="ttdeci">char especialidad[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;especialidad&quot; contiene la especialidad de un doctor. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00129">Estructuras.h:129</a></div></div>
+<div class="ttc" id="struct_diagnostico_paciente_html"><div class="ttname"><a href="struct_diagnostico_paciente.html">DiagnosticoPaciente</a></div><div class="ttdoc">Estructura de datos para almacenar informacion relativa a la vinculacion entre un diagnostico y un pa...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00188">Estructuras.h:188</a></div></div>
+<div class="ttc" id="struct_diagnostico_html_a094c367727273b4da2b960ca3b3edc06"><div class="ttname"><a href="struct_diagnostico.html#a094c367727273b4da2b960ca3b3edc06">Diagnostico::ID</a></div><div class="ttdeci">int ID</div><div class="ttdoc">&quot;ID&quot; contiene al identificador de un diagnostico en su respectiva base de datos. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00064">Estructuras.h:64</a></div></div>
+<div class="ttc" id="struct_doctor_html_a763b45fb68504a61182f1ce222e5abc1"><div class="ttname"><a href="struct_doctor.html#a763b45fb68504a61182f1ce222e5abc1">Doctor::nombre</a></div><div class="ttdeci">char nombre[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;nombre&quot; contiene el nombre de un doctor. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00127">Estructuras.h:127</a></div></div>
+<div class="ttc" id="struct_tratamiento_html_a763b45fb68504a61182f1ce222e5abc1"><div class="ttname"><a href="struct_tratamiento.html#a763b45fb68504a61182f1ce222e5abc1">Tratamiento::nombre</a></div><div class="ttdeci">char nombre[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;nombre&quot; contiene el nombre de un tratamiento. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00150">Estructuras.h:150</a></div></div>
+<div class="ttc" id="struct_paciente_html_a69128fa718f7a5ebd98eb1b829a997be"><div class="ttname"><a href="struct_paciente.html#a69128fa718f7a5ebd98eb1b829a997be">Paciente::fechaNacimiento</a></div><div class="ttdeci">char fechaNacimiento[DEFAULT_STRING_SIZE]</div><div class="ttdoc">&quot;fechaNacimiento&quot; contiene la fecha de nacimiento de un paciente. En formato (dd/mm/aa). </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00098">Estructuras.h:98</a></div></div>
+<div class="ttc" id="struct_diagnostico_html_a27d542cc2ca6186003ba763461c069ae"><div class="ttname"><a href="struct_diagnostico.html#a27d542cc2ca6186003ba763461c069ae">Diagnostico::descripcion</a></div><div class="ttdeci">char descripcion[DEFAULT_LONG_STRING_SIZE]</div><div class="ttdoc">&quot;descripcion&quot; contiene una breve descripcion de lo que consiste un diagnostico. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00065">Estructuras.h:65</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_html_a7f20188ae55f16ab7593de7cb3554ee8"><div class="ttname"><a href="struct_tratamiento_diagnostico.html#a7f20188ae55f16ab7593de7cb3554ee8">TratamientoDiagnostico::IDTratamiento</a></div><div class="ttdeci">int IDTratamiento</div><div class="ttdoc">&quot;IDTratamiento&quot; contiene el identificador del tratamiento relacionado con una vinculacion tratamiento...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00212">Estructuras.h:212</a></div></div>
+<div class="ttc" id="struct_paciente_html_a094c367727273b4da2b960ca3b3edc06"><div class="ttname"><a href="struct_paciente.html#a094c367727273b4da2b960ca3b3edc06">Paciente::ID</a></div><div class="ttdeci">int ID</div><div class="ttdoc">&quot;ID&quot; contiene al identificador de un paciente en su respectiva base de datos. </div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00093">Estructuras.h:93</a></div></div>
+<div class="ttc" id="struct_tratamiento_diagnostico_paciente_html_a39dc582cc6483bebae21964dd8e6332d"><div class="ttname"><a href="struct_tratamiento_diagnostico_paciente.html#a39dc582cc6483bebae21964dd8e6332d">TratamientoDiagnosticoPaciente::IDDiagnosticoPaciente</a></div><div class="ttdeci">int IDDiagnosticoPaciente</div><div class="ttdoc">&quot;IDDiagnosticoPaciente&quot; contiene el identificador de la vinculacion diagnostico-paciente relacionado ...</div><div class="ttdef"><b>Definition:</b> <a href="_estructuras_8h_source.html#l00240">Estructuras.h:240</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado el Jueves, 18 de Septiembre de 2014 19:53:05 para Estructuras por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
