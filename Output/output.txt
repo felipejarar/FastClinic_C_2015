@@ -1,0 +1,2 @@
+ERROR!: No se ha logrado encontrar el rut ingresado en la base de datos
+
